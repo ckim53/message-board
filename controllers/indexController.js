@@ -1,5 +1,5 @@
-const displayIndex = (req, res) => {
-    res.send("Hello World!")
+const displayIndex = (req, res, messages) => {
+    res.render("index", { title: "Mini Messageboard", messages: messages })
 }
 
 module.exports = { displayIndex } 
