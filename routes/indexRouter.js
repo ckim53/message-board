@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { displayIndex } = require('../controllers/indexController');
-const indexRouter = Router();
+const router = Router();
 
 const messages = [
     {
@@ -15,8 +15,12 @@ const messages = [
     }
 ];
   
-indexRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
     displayIndex(req, res, messages);
 });
 
-module.exports = indexRouter;
+router.get('/new', (req, res) => {
+    res.render('form');
+});
+
+module.exports = router;
