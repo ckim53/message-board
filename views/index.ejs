@@ -3,13 +3,19 @@
     <div>
       <p><%= msg.user %></p>
       <p><%= msg.text %></p>
-      <p><%= msg.added %></p>
-      <form action="/message" method="POST">
-        <input type="hidden" name="user" value="<%= msg.user %>">
-        <input type="hidden" name="text" value="<%= msg.text %>">
-        <input type="hidden" name="date" value="<%= msg.added %>">
-        <button type="submit">View Message</button>
-      </form>
+      <% const formattedDate = new Date(msg.added).toLocaleString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      }) %>
+      <p><%= formattedDate %></p>
+      <button onclick="location.href='/message?user=<%= encodeURIComponent(msg.user) %>&text=<%= encodeURIComponent(msg.text) %>&date=<%= encodeURIComponent(formattedDate) %>'">
+        View Message
+      </button>
     </div>
 <% }) %>
+<br>
 <a href='/new'>Post a New Message</a>

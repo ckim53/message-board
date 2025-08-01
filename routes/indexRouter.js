@@ -13,8 +13,8 @@ router.get('/new', (req, res) => {
     res.render('form');
 });
 
-router.post('/message', (req, res) => {
-  const { user, text, date } = req.body;
+router.get('/message', (req, res) => {
+  const { user, text, date } = req.query;
   res.render('message', { user, text, date});
 });
 
