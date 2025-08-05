@@ -1,9 +1,11 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-module.exports = new Pool({
+const pool = new Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
-		rejectUnauthorized: false, // required by Railway
+		rejectUnauthorized: false,
 	},
+	// 👇 set the default schema to "railway"
+	options: '-c search_path=railway',
 });
