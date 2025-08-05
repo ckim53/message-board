@@ -6,6 +6,7 @@ const pool = new Pool({
 	ssl: {
 		rejectUnauthorized: false,
 	},
-	// 👇 set the default schema to "railway"
 	options: '-c search_path=railway',
 });
+
+module.exports = pool;
