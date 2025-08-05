@@ -1,12 +1,17 @@
 {
   "dependencies": {
+    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "prettier": "^3.6.2"
   },
   "type": "commonjs",
   "scripts": {
     "start": "node --watch app.js",
     "dev": "node --run start -- --watch",
     "test": "node --test"
+  },
+  "devDependencies": {
+    "pg": "^8.16.3"
   }
 }

@@ -1,9 +1,9 @@
 <h1>Messages</h1>
 <% messages.forEach(msg => { %>
     <div>
-      <p><%= msg.user %></p>
+      <p><%= msg.username %></p>
       <p><%= msg.text %></p>
-      <% const formattedDate = new Date(msg.added).toLocaleString('en-US', {
+      <% const formattedDate = new Date(msg.date).toLocaleString('en-US', {
         weekday: 'short',
         year: 'numeric',
         month: 'numeric',
@@ -12,9 +12,10 @@
         minute: '2-digit'
       }) %>
       <p><%= formattedDate %></p>
-      <button onclick="location.href='/message?user=<%= encodeURIComponent(msg.user) %>&text=<%= encodeURIComponent(msg.text) %>&date=<%= encodeURIComponent(formattedDate) %>'">
+      <button onclick="location.href='/message?user=<%= encodeURIComponent(msg.username) %>&text=<%= encodeURIComponent(msg.text) %>&date=<%= encodeURIComponent(formattedDate) %>'">
         View Message
       </button>
+      <button onclick="location.href='/delete?user=<%= encodeURIComponent(msg.username) %>'">Delete Message</button>
     </div>
 <% }) %>
 <br>
